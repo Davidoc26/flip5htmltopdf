@@ -5,6 +5,8 @@
 git clone https://github.com/Davidoc26/flip5htmltopdf.git
 ```
 
+Install dependencies with ```composer i```
+
 ## Usage
 ```
 php application.php parse <url> [filename] [temp]
