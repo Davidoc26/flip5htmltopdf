@@ -1,0 +1,23 @@
+{
+  "name": "davidoc26/flip5htmltopdf",
+  "autoload": {
+    "psr-4": {
+      "Davidoc26\\Flip5HtmlToPdf\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "David Eritsyan",
+      "email": "dav.eritsyan@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/http-client": "^5.3",
+    "symfony/console": "^5.3",
+    "setasign/fpdf": "^1.8",
+    "ext-gd": "*"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.3"
+  }
+}
