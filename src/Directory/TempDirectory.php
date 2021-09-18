@@ -11,13 +11,11 @@ class TempDirectory extends Directory
 {
     protected bool $isRemovable = true;
 
-    public function __construct(string $dirname, bool $isRemovable = true)
+    public function __construct(string $path, bool $isRemovable = true)
     {
-        $date = new DateTimeImmutable('now');
+        $path .= self::SEPARATOR . (new DateTimeImmutable('now'))->format('d-m-Y_i:s');
 
-        $this->fullPath = ROOT . self::SEPARATOR . $dirname . self::SEPARATOR . $date->format('d-m-y_i:s');
-        parent::__construct($dirname);
-
+        parent::__construct($path);
         $this->isRemovable = $isRemovable;
     }
 

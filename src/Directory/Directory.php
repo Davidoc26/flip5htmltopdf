@@ -6,12 +6,15 @@ abstract class Directory
 {
     public const SEPARATOR = DIRECTORY_SEPARATOR;
 
+    protected string $path;
     protected string $dirname;
-    protected string $fullPath;
 
-    public function __construct(string $dirname)
+    public function __construct(string $path)
     {
-        $this->dirname = $dirname;
+        $path = pathinfo($path);
+
+        $this->path = $path['dirname'];
+        $this->dirname = $path['basename'];
 
         if (!is_dir($this->getFullPath())) {
             mkdir($this->getFullPath(), recursive: true);
@@ -23,7 +26,7 @@ abstract class Directory
      */
     public function getFullPath(): string
     {
-        return $this->fullPath . self::SEPARATOR;
+        return $this->path . self::SEPARATOR . $this->dirname . self::SEPARATOR;
     }
 
     /**
@@ -33,5 +36,4 @@ abstract class Directory
     {
         return $this->dirname;
     }
-
 }

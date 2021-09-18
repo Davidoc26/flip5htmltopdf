@@ -4,7 +4,8 @@ namespace Davidoc26\Flip5HtmlToPdf\Command;
 
 use Davidoc26\Flip5HtmlToPdf\Exception\BookNotFoundException;
 use Davidoc26\Flip5HtmlToPdf\Exception\IncorrectURLException;
-use Davidoc26\Flip5HtmlToPdf\Parser\Flip5Html;
+use Davidoc26\Flip5HtmlToPdf\Flip5Html;
+use Davidoc26\Flip5HtmlToPdf\Flip5HtmlCLI;
 use Davidoc26\Flip5HtmlToPdf\URL\URLBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -65,7 +66,8 @@ class ParseCommand extends Command
             throw new IncorrectURLException();
         }
 
-        $parser = new Flip5Html($input->getArgument('url'), $input->getOption('filename'), $input->getOption('temp'));
+        $parser = new Flip5HtmlCLI($input->getArgument('url'), $input->getOption('filename'), $input->getOption('temp'));
+        $parser->setOutput($output);
         $parser->fetchBook();
 
         $io->info('PDF has been generated!');

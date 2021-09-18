@@ -4,10 +4,8 @@ namespace Davidoc26\Flip5HtmlToPdf\Directory;
 
 class DefaultDirectory extends Directory
 {
-    public function __construct(string $dirname)
+    public function __construct(string $path)
     {
-        $this->fullPath = ROOT . self::SEPARATOR . $dirname . self::SEPARATOR;
-
-        parent::__construct($dirname);
+        parent::__construct($path);
     }
 }
