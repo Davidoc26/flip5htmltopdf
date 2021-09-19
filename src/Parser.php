@@ -57,7 +57,7 @@ abstract class Parser
             if ($response->getStatusCode() !== 200) {
                 break;
             }
-            $output?->writeln("Getting $url");
+            $output?->writeln("<info>Getting $url</info>");
 
             $img = imagecreatefromstring($response->getContent());
 
