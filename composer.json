@@ -15,8 +15,7 @@
     "php": ">=8.0",
     "symfony/http-client": "^5.3",
     "symfony/console": "^5.3",
-    "setasign/fpdf": "^1.8",
-    "ext-gd": "*"
+    "tecnickcom/tcpdf": "^6.4"
   },
   "require-dev": {
     "symfony/var-dumper": "^5.3"
