@@ -9,27 +9,27 @@ Install dependencies with ```composer i```
 
 ## Usage
 ```
-php application.php parse <url> [filename] [temp]
+php application.php parse <url> [filename] [path]
 ```
 Use -f to specify output PDF filename.
 
-Use -t to store temp files(contains .jpg).
-
-PDF file will be created in /output directory.
+Use -r to specify an absolute path to the PDF output directory (default: ./output)
 
 ### Using as package
 
-Firstly you should define your output and temporary directories
+First you need to install the package
+```
+composer require davidoc26/flip5htmltopdf
+```
 
-Then pass the full path to outputPath and tempPath arguments:
+Then, when initializing the parser, pass a generator to it (you can also create your own generator)
+
 ```php
-    $flip5html = new Flip5Html(
-        url: 'link to book',
-        outputPath: __DIR__ . '/output',
-        outputFilename: 'book',
-        tempPath: __DIR__ . '/temp',
-        dropTemp: false // Should the temporary directory be cleaned up
-        );
+$parser = new Parser(
+    url: $url,
+    generator: new PdfGenerator($outputPath, $outputFilename)
+);
+$parser->fetchBook();
 ```
 
 **Be careful! The pdf file creation process can reach memory_limit!**
